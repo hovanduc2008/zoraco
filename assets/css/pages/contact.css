@@ -1,0 +1,9 @@
+.contact-content {
+    display: flex;
+    justify-content: center;
+}
+
+.contact-content > div {
+    width: 1300px;
+    margin-top: 20px;
+}

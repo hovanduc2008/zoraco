@@ -1,0 +1,102 @@
+/* Reset cơ bản */
+* {
+  box-sizing: border-box;
+  margin: 0; padding: 0;
+}
+
+.page-wrapper {
+  max-width: 1300px;
+  margin: 2rem auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+}
+
+.archive-header {
+  margin-bottom: 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.page-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #007acc;
+}
+
+.page-title span {
+  color: #ff6600;
+}
+
+.content-row {
+  display: flex;
+  gap: 2rem;
+}
+
+.main-content {
+  flex: 3;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.post-item {
+  background: #f9f9f9;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.post-item:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.post-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.post-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.post-date {
+  font-size: 0.875rem;
+  color: #666;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.post-excerpt {
+  color: #444;
+  line-height: 1.4;
+}
+
+.widget {
+  margin-bottom: 2rem;
+}
+
+.widget h2 {
+  font-size: 1.25rem;
+  border-bottom: 2px solid #007acc;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  color: #007acc;
+}
+
+.latest-products .product_m_list {
+  
+}
+
+.latest-products .product_m_item {
+  display: flex;
+}
+
+
