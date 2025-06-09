@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
     const slides = document.querySelector('.slides');
     const slideElements = document.querySelectorAll('.slide');
@@ -11,25 +10,23 @@ document.addEventListener('DOMContentLoaded', () => {
         slides.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
     };
 
-    nextButton.addEventListener('click', () => {
+    const nextSlide = () => {
         currentIndex = (currentIndex + 1) % slideElements.length;
         updateSlider();
-    });
+    };
 
-    prevButton.addEventListener('click', () => {
+    const prevSlide = () => {
         currentIndex = (currentIndex - 1 + slideElements.length) % slideElements.length;
         updateSlider();
-    });
+    };
 
-    // Optional: Auto-play slider
-    // setInterval(() => {
-    //     currentIndex = (currentIndex + 1) % slideElements.length;
-    //     updateSlider();
-    // }, 5000); // Change slide every 5 seconds
+    nextButton.addEventListener('click', nextSlide);
+    prevButton.addEventListener('click', prevSlide);
 
-    // Update slider on window resize to ensure correct positioning
     window.addEventListener('resize', updateSlider);
 
-    // Initialize slider position
+    // Tự động chuyển slide sau mỗi 3 giây
+    setInterval(nextSlide, 3000);
+
     updateSlider();
 });
