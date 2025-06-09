@@ -1,0 +1,250 @@
+.slider {
+    margin-top: 10px;
+}
+
+.slider-container {
+    position: relative;
+    width: 100%;
+    max-width: 1300px; /* Adjust based on your image width or desired max width */
+    margin: auto;
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    display: block;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    background-color: rgba(0,0,0,0.5);
+    border: none;
+    outline: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+
+
+
+
+/* Styles for .product_cate_type1 container */
+.product_cate_type1 {
+    width: 100%;
+    max-width: 1300px; /* Adjust max-width as needed for your layout */
+    margin: 40px auto; /* Add some top/bottom margin and center */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+/* Header styles */
+.product_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #eee; /* Light gray line at the bottom */
+    padding-bottom: 15px;
+}
+
+.product_header h2 {
+    font-size: 28px;
+    color: #333;
+    margin: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.product_header .view_all {
+    text-decoration: none;
+    color: #007bff; /* Blue color for the link */
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.product_header .view_all:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+.product_header .view_all .arrow {
+    margin-left: 5px;
+    font-size: 18px; /* Slightly larger arrow */
+    line-height: 1; /* Align arrow vertically */
+}
+
+/* Product List styles */
+.product_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 30px; /* Space between product items */
+}
+
+/* Product Item styles */
+.product_item {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Needed for absolute positioning of tags */
+}
+
+.product_item:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product_link {
+    text-decoration: none;
+    color: inherit;
+    display: block; /* Make the entire item clickable */
+}
+
+.product_image_wrapper {
+    position: relative;
+    padding-bottom: 100%; /* Creates a square container for the image */
+    overflow: hidden;
+    background-color: #f8f8f8; /* Placeholder background */
+}
+
+.product_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    transition: transform 0.3s ease;
+}
+
+.product_item:hover .product_image {
+    transform: scale(1.05); /* Slight zoom on image hover */
+}
+
+.brand_overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.product_title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    margin: 15px 15px 10px;
+    line-height: 1.4;
+    min-height: 50px; /* Ensures consistent height for titles */
+}
+
+.product_price {
+    margin: 0 15px 15px;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap; /* Allow prices to wrap if space is tight */
+}
+
+.product_price .old_price {
+    font-size: 15px;
+    color: #999;
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+
+.product_price .current_price {
+    font-size: 20px;
+    color: #dc3545; /* Red color for current price */
+    font-weight: bold;
+}
+
+.sport_wear_tag {
+    position: absolute;
+    bottom: 15px; /* Adjust position from bottom */
+    right: 15px; /* Adjust position from right */
+    background-color: #007bff; /* Blue background for the tag */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .product_list {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    .product_header h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product_list {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+    }
+    .product_item {
+        margin: 0 auto; /* Center items on smaller screens */
+        max-width: 300px; /* Limit width of single items */
+    }
+    .product_header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .product_header h2 {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product_list {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 25px;
+    }
+    .product_cate_type1 {
+        padding: 15px;
+    }
+}

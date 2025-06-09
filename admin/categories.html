@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quản lý danh mục</title>
+  <link rel="stylesheet" href="../assets/css/admin/base.css" />
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    th {
+      background-color: #f0f3f5;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .actions button {
+      margin-right: 5px;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn-edit {
+      background-color: #3498db;
+      color: #fff;
+    }
+
+    .btn-delete {
+      background-color: #e74c3c;
+      color: #fff;
+    }
+
+    /* Nút thêm danh mục */
+    #add-category-btn {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
+    /* Thanh tìm kiếm */
+    #searchInput {
+      width: 100%;
+      max-width: 300px;
+      padding: 8px 12px;
+      font-size: 15px;
+      margin-top: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-header">
+          <h2>🛠️ Admin</h2>
+        </div>
+        <nav class="nav">
+          <a href="./index.html" class="nav-item">📊 Dashboard</a>
+          <a href="./accounts.html" class="nav-item">👤 Quản lý tài khoản</a>
+          <a href="./categories.html" class="nav-item active">📁 Quản lý danh mục</a>
+          <a href="./products.html" class="nav-item">📦 Quản lý sản phẩm</a>
+          <a href="./orders.html" class="nav-item">🧾 Quản lý đơn hàng</a>
+          <a href="./posts.html" class="nav-item">📝 Quản lý bài viết</a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <p>&copy; 2025 Admin Panel</p>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      <h1>📁 Quản lý danh mục</h1>
+
+      <!-- Thanh tìm kiếm -->
+      <input type="text" id="searchInput" placeholder="Tìm kiếm danh mục..." />
+
+      <!-- Nút thêm danh mục -->
+      <button id="add-category-btn">+ Thêm danh mục</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tên danh mục</th>
+            <th>Mô tả</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#C01</td>
+            <td>Điện thoại</td>
+            <td>Sản phẩm điện thoại di động</td>
+            <td class="actions">
+              <button class="btn-edit">Sửa</button>
+              <button class="btn-delete">Xoá</button>
+            </td>
+          </tr>
+          <tr>
+            <td>#C02</td>
+            <td>Máy tính</td>
+            <td>Máy tính, laptop, thiết bị liên quan</td>
+            <td class="actions">
+              <button class="btn-edit">Sửa</button>
+              <button class="btn-delete">Xoá</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <!-- Link JS riêng -->
+  <script src="../assets/js/admin/categories.js"></script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="../assets/css/admin/base.css" />
+  <link rel="stylesheet" href="../assets/css/base.css" />
+  <style>
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card .number {
+      font-size: 32px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .card .label {
+      margin-top: 8px;
+      font-size: 16px;
+      color: #7f8c8d;
+    }
+
+    .chart-container {
+      margin-top: 40px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    canvas {
+      max-width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-header">
+          <h2>🛠️ Admin</h2>
+        </div>
+        <nav class="nav">
+          <a href="./index.html" class="nav-item active">📊 Dashboard</a>
+          <a href="./accounts.html" class="nav-item">👤 Quản lý tài khoản</a>
+          <a href="./categories.html" class="nav-item">📁 Quản lý danh mục</a>
+          <a href="./products.html" class="nav-item">📦 Quản lý sản phẩm</a>
+          <a href="./orders.html" class="nav-item">🧾 Quản lý đơn hàng</a>
+          <a href="./posts.html" class="nav-item">📝 Quản lý bài viết</a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <p>&copy; 2025 Admin Panel</p>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      <h1>📊 Dashboard</h1>
+
+      <!-- Cards -->
+      <div class="cards">
+        <div class="card">
+          <div class="number">2500</div>
+          <div class="label">Người dùng</div>
+        </div>
+        <div class="card">
+          <div class="number">123.50</div>
+          <div class="label">Thời gian trung bình</div>
+        </div>
+        <div class="card">
+          <div class="number">1805</div>
+          <div class="label">Đơn hàng</div>
+        </div>
+        <div class="card">
+          <div class="number">54</div>
+          <div class="label">Bình luận</div>
+        </div>
+      </div>
+
+      <!-- Biểu đồ -->
+      <div class="chart-container">
+        <h2 style="margin-bottom: 20px;">📈 Đơn hàng theo tháng</h2>
+        <canvas id="ordersChart" height="100"></canvas>
+      </div>
+    </main>
+  </div>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Script biểu đồ -->
+  <script>
+    const ctx = document.getElementById('ordersChart').getContext('2d');
+    const ordersChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6'],
+        datasets: [{
+          label: 'Số đơn hàng',
+          data: [120, 150, 180, 100, 90, 160],
+          backgroundColor: '#3498db',
+          borderRadius: 6
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: false
+          },
+          tooltip: {
+            mode: 'index',
+            intersect: false
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true,
+            ticks: {
+              stepSize: 20
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

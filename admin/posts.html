@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quản lý bài viết</title>
+  <link rel="stylesheet" href="../assets/css/admin/base.css" />
+  <link rel="stylesheet" href="../assets/css/base.css" />
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+      vertical-align: top;
+    }
+
+    th {
+      background-color: #f0f3f5;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .actions button {
+      margin-right: 5px;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn-edit {
+      background-color: #3498db;
+      color: #fff;
+    }
+
+    .btn-delete {
+      background-color: #e74c3c;
+      color: #fff;
+    }
+
+    #add-post-btn {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
+    #searchInput,
+    #categoryFilter {
+      width: 100%;
+      max-width: 300px;
+      padding: 8px 12px;
+      font-size: 15px;
+      margin-top: 15px;
+      margin-right: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-header">
+          <h2>🛠️ Admin</h2>
+        </div>
+        <nav class="nav">
+          <a href="./index.html" class="nav-item">📊 Dashboard</a>
+          <a href="./accounts.html" class="nav-item">👤 Quản lý tài khoản</a>
+          <a href="./categories.html" class="nav-item">📁 Quản lý danh mục</a>
+          <a href="./products.html" class="nav-item">📦 Quản lý sản phẩm</a>
+          <a href="./orders.html" class="nav-item">🧾 Quản lý đơn hàng</a>
+          <a href="./posts.html" class="nav-item active">📝 Quản lý bài viết</a>
+        </nav>
+      </div>
+      <div class="sidebar-footer">
+        <p>&copy; 2025 Admin Panel</p>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main">
+      <h1>📝 Quản lý bài viết</h1>
+
+      <!-- Bộ lọc -->
+      <div class="filters">
+        <input type="text" id="searchInput" placeholder="Tìm kiếm bài viết..." />
+        <select id="categoryFilter">
+          <option value="">Tất cả danh mục</option>
+          <option value="cong-nghe">Công nghệ</option>
+          <option value="thoi-trang">Thời trang</option>
+          <option value="suc-khoe">Sức khoẻ</option>
+          <option value="du-lich">Du lịch</option>
+        </select>
+      </div>
+
+      <!-- Nút thêm bài viết -->
+      <button id="add-post-btn">+ Thêm bài viết</button>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tiêu đề</th>
+            <th>Danh mục</th>
+            <th>Nội dung</th>
+            <th>Ngày đăng</th>
+            <th>Thao tác</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#P01</td>
+            <td>Tin tức khuyến mãi tháng 6</td>
+            <td>Khuyến mãi</td>
+            <td>Tin tức khuyến mãi tháng 6...</td>
+            <td>09/06/2025</td>
+            <td class="actions">
+              <button class="btn-edit">Sửa</button>
+              <button class="btn-delete">Xoá</button>
+            </td>
+          </tr>
+          <tr>
+            <td>#P02</td>
+            <td>Chung kết Nations Leage giữa Bồ Đào Nha và Tây Ban Nha</td>
+            <td>Blog bóng đá</td>
+            <td>Chung kết Nations Leage giữa Bồ Đào Nha và Tây Ban Nha...</td>
+            <td>05/06/2025</td>
+            <td class="actions">
+              <button class="btn-edit">Sửa</button>
+              <button class="btn-delete">Xoá</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+  <!-- Link JS riêng -->
+  <script src="../assets/js/admin/posts.js"></script>
+</body>
+</html>
