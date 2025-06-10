@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hóa Đơn Đặt Hàng</title>
+  <link rel="stylesheet" href="../assets/css/base.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 20px;
+    }
+    .invoice-container {
+      background: white;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .section {
+      margin-bottom: 20px;
+    }
+    .section h2 {
+      font-size: 18px;
+      color: #333;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
+    }
+    .info p {
+      margin: 5px 0;
+    }
+    .order-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .order-table th, .order-table td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    .total {
+      text-align: right;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+    .back-home {
+      display: block;
+      margin-top: 30px;
+      text-align: center;
+    }
+    .back-home a {
+      text-decoration: none;
+      color: white;
+      background: #2ecc71;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="invoice-container">
+    <h1>🧾 Hóa Đơn Đặt Hàng</h1>
+
+    <div class="section info">
+      <h2>Thông tin khách hàng</h2>
+      <p><strong>Họ tên:</strong> <span id="fullname">Nguyễn Văn An</span></p>
+      <p><strong>Số điện thoại:</strong> <span id="phone">0987654321</span></p>
+      <p><strong>Email:</strong> <span id="email">nguyenvanan@gmail.com</span></p>
+      <p><strong>Địa chỉ:</strong> <span id="address">Việt Nam</span></p>
+      <p><strong>Ghi chú:</strong> <span id="note">Note</span></p>
+    </div>
+
+    <div class="section">
+      <h2>Chi tiết đơn hàng</h2>
+      <table class="order-table">
+        <thead>
+          <tr>
+            <th>Sản phẩm</th>
+            <th>Giá</th>
+          </tr>
+        </thead>
+        <tbody id="order-items">
+          <tr>
+            <td>ÁO BÓNG CHUYỀN TẠI LÀO CAI MÀU XANH NGỌC ĐẸP RO-GIBA-08</td>
+            <td>159.000đ</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="total">
+        Tổng cộng: 159.000đ
+      </div>
+    </div>
+
+    <div class="back-home">
+      <a href="./index.html">🏠 Quay lại trang chủ</a>
+    </div>
+  </div>
+</body>
+</html>

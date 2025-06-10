@@ -18,7 +18,7 @@ function updateCartTotal() {
 // Khởi tạo sự kiện sau khi DOM đã tải
 document.addEventListener("DOMContentLoaded", function () {
     // Giá mẫu cho từng sản phẩm, sau này nên lấy từ data attributes hoặc backend
-    const DEFAULT_PRICE = 250000;
+    const DEFAULT_PRICE = 159000;
 
     // Sự kiện thay đổi số lượng
     document.querySelectorAll('.quantity-input').forEach(input => {
