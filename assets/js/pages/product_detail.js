@@ -5,6 +5,40 @@ function notifyAndRedirect(event) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    const addToCartBtn = document.querySelector(".add-to-cart");
+
+    addToCartBtn.addEventListener("click", () => {
+        const title = document.querySelector(".product-title").textContent.trim();
+        const oldPrice = document.querySelector(".old-price").textContent.trim();
+        const currentPrice = document.querySelector(".current-price").textContent.trim();
+        const image = document.querySelector(".product-images img").getAttribute("src");
+        const category = document.querySelector(".product-category").textContent.replace("Danh mục:", "").trim();
+
+        const product = {
+            title: title,
+            oldPrice: oldPrice,
+            currentPrice: currentPrice,
+            image: image,
+            category: category,
+            quantity: 1 
+        };
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const existingIndex = cart.findIndex(p => p.title === product.title);
+        if (existingIndex !== -1) {
+            cart[existingIndex].quantity += 1;
+        } else {
+            cart.push(product);
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        alert("Đã thêm sản phẩm vào giỏ hàng!");
+    });
+
+
+
     // Gắn sự kiện cho các nút thêm vào giỏ hàng
     const actionButtons = document.querySelectorAll('.product-actions .btn');
     actionButtons.forEach(button => {

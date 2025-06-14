@@ -84,7 +84,7 @@
     </header>
     <nav>
         <ul class="menu">
-            <li><a href="#">TRANG CHỦ</a></li>
+            <li><a href="./index.html">TRANG CHỦ</a></li>
             <li><a href="./introduce.html">GIỚI THIỆU</a></li>
             <li><a href="./promotion.html">KHUYẾN MÃI</a></li>
 
@@ -127,7 +127,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
+                <!-- <tr>
                     <td class="product-info">
                         <img src="../assets/images/products/AoBongChuyen-RO-GIBA-Hong.jpg" alt="Áo đấu" />
                         <span>ÁO BÓNG CHUYỀN TẠI LÀO CAI MÀU XANH NGỌC ĐẸP RO-GIBA-08</span>
@@ -140,7 +140,7 @@
                     <td>
                     <button class="remove-btn">🗑️</button>
                     </td>
-                </tr>
+                </tr> -->
                 <!-- Thêm sản phẩm khác nếu có -->
                 </tbody>
             </table>
@@ -214,10 +214,79 @@
     <a href="https://zalo.me/0123456789" target="_blank" class="btn-zalo">💬</a>
     </div>
 
-    <!-- Nút Roll Back -->
     <button id="btn-back-to-top" title="Go to top">🔼</button>
 
 </body>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const cartTableBody = document.querySelector(".cart-table tbody");
+    const cartTotal = document.getElementById("cart-total");
+
+    function formatCurrency(number) {
+        return number.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
+    }
+
+    function updateCartDisplay() {
+        cartTableBody.innerHTML = "";
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let totalAmount = 0;
+
+        cart.forEach((product, index) => {
+            const productTotal = product.quantity * parseInt(product.currentPrice.replace(/[^\d]/g, ''));
+            totalAmount += productTotal;
+
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td class="product-info">
+                    <img src="${product.image}" alt="${product.title}" />
+                    <span>${product.title}</span>
+                </td>
+                <td class="product-price">${product.currentPrice}</td>
+                <td>
+                    <input class="quantity-input" type="number" min="1" value="${product.quantity}" data-index="${index}" />
+                </td>
+                <td class="product-total">${formatCurrency(productTotal)}</td>
+                <td>
+                    <button class="remove-btn" data-index="${index}">🗑️</button>
+                </td>
+            `;
+            cartTableBody.appendChild(row);
+        });
+
+        cartTotal.textContent = formatCurrency(totalAmount);
+        attachEvents();
+    }
+
+    function attachEvents() {
+        document.querySelectorAll(".remove-btn").forEach(btn => {
+            console.log("xxxxxx");
+            
+            btn.addEventListener("click", () => {
+                const index = btn.getAttribute("data-index");
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart.splice(index, 1);
+                localStorage.setItem("cart", JSON.stringify(cart));
+                updateCartDisplay();
+            });
+        });
+
+        document.querySelectorAll(".quantity-input").forEach(input => {
+            input.addEventListener("change", () => {
+                const index = input.getAttribute("data-index");
+                const newQty = parseInt(input.value);
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+                cart[index].quantity = newQty;
+                localStorage.setItem("cart", JSON.stringify(cart));
+                updateCartDisplay();
+            });
+        });
+    }
+
+    updateCartDisplay(); 
+});
+</script>
+
 <script src="../assets/js/pages/cart.js"></script>
 <script>
   function resizeSelect(select) {
@@ -239,7 +308,6 @@
 <script>
   const btn = document.getElementById("btn-back-to-top");
 
-  // Hiện nút khi cuộn xuống
   window.onscroll = () => {
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
       btn.style.display = "block";
@@ -248,7 +316,6 @@
     }
   };
 
-  // Cuộn về đầu trang khi click
   btn.onclick = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
